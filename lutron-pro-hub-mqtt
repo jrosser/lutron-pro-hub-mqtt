@@ -9,6 +9,11 @@ var argv = require('minimist')(process.argv.slice(2), {
   }
 });
 
+if(process.env.LUTRON_MQTT_URL) argv['mqtt-url'] = process.env.LUTRON_MQTT_URL
+if(process.env.LUTRON_PORT) argv['lutron-port'] = process.env.LUTRON_PORT
+if(process.env.LUTRON_HOST) argv['lutron-host'] = process.env.LUTRON_HOST
+if(process.env.LUTRON_TOPIC_PREFIX) argv['topic-prefix'] = process.env.LUTRON_TOPIC_PREFIX
+
 if (!argv['lutron-host']) {
   console.warn(`
   Usage:
